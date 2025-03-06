@@ -1,11 +1,14 @@
 import Express from "express"
+import cors from "cors"
 
 const app = Express()
+
+app.use(cors())
 
 app.get("/api/greet", (req, res) => {
     const name = req.query.name
     if (!name) {
-        res.json({
+        res.status(400).json({
             error: "name is required."
         })
         return
