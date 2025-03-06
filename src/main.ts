@@ -5,6 +5,10 @@ const app = Express()
 
 app.use(cors())
 
+app.get("/", (_req, res) => {
+    res.json("Welcome to Greeting API.")
+})
+
 app.get("/api/greet", (req, res) => {
     const name = req.query.name
     if (!name) {
